@@ -20,6 +20,7 @@ gem 'pg'
 gem 'simple_form'
 gem 'annotate'
 gem 'figaro'
+gem 'stripe'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
