@@ -18,6 +18,7 @@ gem 'devise_invitable'
 gem 'high_voltage'
 gem 'pg'
 gem 'simple_form'
+gem 'annotate'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
