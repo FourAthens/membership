@@ -10,10 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170210185245) do
+ActiveRecord::Schema.define(version: 20170218202308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "org_owner_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.integer  "frequency"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "cc_exp_month"
+    t.string   "cc_exp_year"
+    t.string   "last_four_digits"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "stripe_customer_id"
+    t.string   "stripe_token"
+    t.string   "profileable_type"
+    t.integer  "profileable_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["profileable_type", "profileable_id"], name: "index_profiles_on_profileable_type_and_profileable_id", using: :btree
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "plan_id"
+    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["plan_id"], name: "index_subscriptions_on_plan_id", using: :btree
+    t.index ["profile_id"], name: "index_subscriptions_on_profile_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -49,4 +91,6 @@ ActiveRecord::Schema.define(version: 20170210185245) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "subscriptions", "plans"
+  add_foreign_key "subscriptions", "profiles"
 end
