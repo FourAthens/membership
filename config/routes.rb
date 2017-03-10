@@ -38,7 +38,9 @@
 #
 
 Rails.application.routes.draw do
+  get 'registrations/new'
+
   root to: 'visitors#index'
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   resources :users
 end
