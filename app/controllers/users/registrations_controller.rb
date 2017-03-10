@@ -9,8 +9,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
       #
     else render new
     end
-    redirect_to root_path
+    redirect_to @user
   end
+
+  # def after_sign_up_path_for(@user)
+  #  redirect_to
+  # end
+
+  private
 
   def user_params
     params.require(:user).permit(:name, :email, :password)
