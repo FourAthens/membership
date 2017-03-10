@@ -41,6 +41,6 @@ Rails.application.routes.draw do
   get 'registrations/new'
 
   root to: 'visitors#index'
-  devise_for :users, controllers: { registrations: "registrations" }
+  devise_for :users, controllers: { registrations: "users/registrations" }
   resources :users
 end
