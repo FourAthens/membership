@@ -38,7 +38,7 @@
 #
 
 Rails.application.routes.draw do
-  get 'registrations/new'
+  #get 'registrations/new'
 
   root to: 'visitors#index'
   devise_for :users, controllers: { registrations: "users/registrations" }
