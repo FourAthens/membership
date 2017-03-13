@@ -38,6 +38,8 @@
 #
 
 Rails.application.routes.draw do
+  #get 'organization/new'
+
   #get 'registrations/new'
 
   root to: 'visitors#index'
