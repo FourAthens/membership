@@ -6,10 +6,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     if @user.save!
-      #
+      redirect_to @user
     else render new
     end
-    redirect_to @user
   end
 
   # def after_sign_up_path_for(@user)
