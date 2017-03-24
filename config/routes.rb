@@ -38,11 +38,11 @@
 #
 
 Rails.application.routes.draw do
-  #get 'organization/new'
-
   #get 'registrations/new'
 
   root to: 'visitors#index'
+  #get 'organizations/new'
   devise_for :users, controllers: { registrations: "users/registrations" }
   resources :users
+  resources :organizations
 end
