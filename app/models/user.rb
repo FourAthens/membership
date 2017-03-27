@@ -29,10 +29,23 @@
 #  invited_by_type        :string
 #  invited_by_id          :integer
 #  invitations_count      :integer          default("0")
+#  organization_id        :integer
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_invitation_token      (invitation_token) UNIQUE
+#  index_users_on_invitations_count     (invitations_count)
+#  index_users_on_invited_by_id         (invited_by_id)
+#  index_users_on_organization_id       (organization_id)
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 
 class User < ApplicationRecord
-  enum role: [:user, :vip, :admin]
+  has_one :profile, as: :profileable
+  belongs_to :organization, foreign_key: :organization_id
+
+  enum role: [:user, :org_admin, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role

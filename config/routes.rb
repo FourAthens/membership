@@ -10,13 +10,13 @@
 #            user_password PATCH  /users/password(.:format)          devise/passwords#update
 #                          PUT    /users/password(.:format)          devise/passwords#update
 #                          POST   /users/password(.:format)          devise/passwords#create
-# cancel_user_registration GET    /users/cancel(.:format)            devise_invitable/registrations#cancel
-#    new_user_registration GET    /users/sign_up(.:format)           devise_invitable/registrations#new
-#   edit_user_registration GET    /users/edit(.:format)              devise_invitable/registrations#edit
-#        user_registration PATCH  /users(.:format)                   devise_invitable/registrations#update
-#                          PUT    /users(.:format)                   devise_invitable/registrations#update
-#                          DELETE /users(.:format)                   devise_invitable/registrations#destroy
-#                          POST   /users(.:format)                   devise_invitable/registrations#create
+# cancel_user_registration GET    /users/cancel(.:format)            users/registrations#cancel
+#    new_user_registration GET    /users/sign_up(.:format)           users/registrations#new
+#   edit_user_registration GET    /users/edit(.:format)              users/registrations#edit
+#        user_registration PATCH  /users(.:format)                   users/registrations#update
+#                          PUT    /users(.:format)                   users/registrations#update
+#                          DELETE /users(.:format)                   users/registrations#destroy
+#                          POST   /users(.:format)                   users/registrations#create
 #    new_user_confirmation GET    /users/confirmation/new(.:format)  devise/confirmations#new
 #        user_confirmation GET    /users/confirmation(.:format)      devise/confirmations#show
 #                          POST   /users/confirmation(.:format)      devise/confirmations#create
@@ -38,7 +38,11 @@
 #
 
 Rails.application.routes.draw do
+  #get 'registrations/new'
+
   root to: 'visitors#index'
-  devise_for :users
+  #get 'organizations/new'
+  devise_for :users, controllers: { registrations: "users/registrations" }
   resources :users
+  resources :organizations
 end

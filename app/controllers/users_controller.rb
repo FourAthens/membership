@@ -6,6 +6,20 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      #
+    else render new
+  end
+
+  def new
+    @user = User.new(user_params)
+  end
+
+  def edit
+  end
+
   def show
     @user = User.find(params[:id])
     unless current_user.admin?
@@ -25,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:id])
+    @user = User.find(params[:id])
     user.destroy
     redirect_to users_path, :notice => "User deleted."
   end
@@ -40,6 +54,10 @@ class UsersController < ApplicationController
 
   def secure_params
     params.require(:user).permit(:role)
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password. :password_confirmation)
   end
 
 end

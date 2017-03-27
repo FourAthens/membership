@@ -1,0 +1,13 @@
+<div class="authform">
+  <%= form_for(@organization, :html => { :role => 'form'}) do |f| %>
+    <h3>Sign up</h3>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.hidden_field :org_owner_id, value: current_user.id %>
+    </div>
+     <%= f.submit 'Create', :class => 'button right' %>
+  <% end %>
+</div>
