@@ -21,6 +21,7 @@ gem 'simple_form'
 gem 'annotate'
 gem 'figaro'
 gem 'stripe'
+gem 'cocoon'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

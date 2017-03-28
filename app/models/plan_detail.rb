@@ -14,5 +14,5 @@
 #
 
 class PlanDetail < ApplicationRecord
-  belongs_to :plan
+  belongs_to :plan, inverse_of: :plan_details
 end
