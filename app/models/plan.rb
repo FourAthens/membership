@@ -14,5 +14,7 @@ class Plan < ApplicationRecord
   has_many :subscrptions
   has_many :profiles, through: :subscriptions
 
+  has_many :plan_details, dependent: :destroy
+
   enum frequency: [:monthly, :yearly]
 end
