@@ -1,4 +1,6 @@
 class PlansController < ApplicationController
+  before_action :enforce_admin
+
   def index
     @plans = Plan.all
   end
@@ -29,6 +31,12 @@ class PlansController < ApplicationController
   end
 
   private
+
+  def enforce_admin
+    unless user_signed_in? && user.admin?
+      redirect_to root_path, notice: "You're not allowed to access that."
+    end
+  end
 
   def plan_params
     params.require(:plan).permit(:name, :price, :frequency, plan_details_attributes: [:id, :content, :_destroy])
