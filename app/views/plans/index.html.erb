@@ -1,12 +1,13 @@
-<h1>Plans#index</h1>
-<p>Find me in app/views/plans/index.html.erb</p>
+<h1>Available plans</h1>
 <% @plans.each do |plan| %>
 
-  <%= plan.name %>
-  <%= plan.price %>/<%= plan.frequency %>
+  <h3>Name: <%= plan.name %></h3>
+  <h4>Cost: <%= number_to_currency(plan.price/100) %>/<%= plan.frequency %></h4>
 
   Details:
-  <% plan.plan_details.each do |pd| %>
-    <%= pd.content %>
-  <% end %>
+  <ul>
+    <% plan.plan_details.each do |pd| %>
+      <li><%= pd.content %></li>
+    <% end %>
+  </ul>
 <% end %>
