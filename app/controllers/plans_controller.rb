@@ -33,8 +33,8 @@ class PlansController < ApplicationController
   private
 
   def enforce_admin
-    unless user_signed_in? && user.admin?
-      redirect_to root_path, notice: "You're not allowed to access that."
+    unless user_signed_in? && current_user.admin?
+      redirect_to new_user_session_path, notice: "You're not allowed to access that."
     end
   end
 
