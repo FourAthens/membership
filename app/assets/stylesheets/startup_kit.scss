@@ -787,21 +787,26 @@ textarea {
   height: 680px;
 }
 .hero-slider-wrapper .flexslider .slide.slide-1 {
-  background: #35373C url('../images/hero/hero-1.jpg') no-repeat 50% top;
+  background: #35373C no-repeat 50% top;
+  // background-image: url('<%= asset_path("hero/hero-1.png") %>');
+  background-image: image-url('hero/hero-1.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 .hero-slider-wrapper .flexslider .slide.slide-2 {
-  background: #35373C url('../images/hero/hero-2.jpg') no-repeat 50% top;
+  background: #35373C no-repeat 50% top;
+  background-image: image-url('hero/hero-2.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
+
 .hero-slider-wrapper .flexslider .slide.slide-3 {
-  background: #35373C url('../images/hero/hero-3.jpg') no-repeat 50% top;
+  background: #35373C no-repeat 50% top;
+  background-image: image-url('hero/hero-3.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1244,7 +1249,8 @@ body.sticky-page-nav .overview-section {
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
 }
 .stories-page .hero-holder {
-  background: #35373C url('../images/hero/hero-stories.jpg') no-repeat 50% 50%;
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('hero/hero-stories.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1370,7 +1376,8 @@ body.sticky-page-nav .overview-section {
   width: 80px;
 }
 .story-single-page .hero-holder {
-  background: #35373C url('../images/hero/hero-story-single.jpg') no-repeat 50% 50%;
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('hero/hero-story-single.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
