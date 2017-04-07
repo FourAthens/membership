@@ -41,7 +41,3 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'byebug', platform: :mri
 end
-
-group :assets do
-  gem 'twitter-bootstrap-rails'
-end
