@@ -788,7 +788,6 @@ textarea {
 }
 .hero-slider-wrapper .flexslider .slide.slide-1 {
   background: #35373C no-repeat 50% top;
-  // background-image: url('<%= asset_path("hero/hero-1.png") %>');
   background-image: image-url('hero/hero-1.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -1026,19 +1025,23 @@ body.sticky-page-nav .overview-section {
   background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.8) 35%);
 }
 .customers-section .item-1 .item-inner {
-  background: url('../images/customers/customer-1.jpg') no-repeat 50% 50%;
+  background: no-repeat 50% 50%;
+  background-image: image-url('customers/customer-1.jpg');
   background-size: cover;
 }
 .customers-section .item-2 .item-inner {
-  background: url('../images/customers/customer-2.jpg') no-repeat 50% 50%;
+  background: no-repeat 50% 50%;
+  background-image: image-url('customers/customer-2.jpg');
   background-size: cover;
 }
 .customers-section .item-3 .item-inner {
-  background: url('../images/customers/customer-3.jpg') no-repeat 50% 50%;
+  background: no-repeat 50% 50%;
+  background-image: image-url('customers/customer-3.jpg');
   background-size: cover;
 }
 .customers-section .item-4 .item-inner {
-  background: url('../images/customers/customer-4.jpg') no-repeat 50% 50%;
+  background: no-repeat 50% 50%;
+  background-image: image-url('customers/customer-4.jpg');
   background-size: cover;
 }
 .customers-section .item-mask {
@@ -1103,7 +1106,8 @@ body.sticky-page-nav .overview-section {
   background-color: #0e83cd;
 }
 .signup-section .section-inner {
-  background: url('../images/map.svg') no-repeat left top;
+  background: no-repeat left top;
+  background-image: image-url('map.svg');
   background-size: cover;
 }
 .signup-section .counter-wrapper {
@@ -1525,7 +1529,8 @@ body.sticky-page-nav .overview-section {
   margin-bottom: 15px;
 }
 .pricing-page .hero-holder {
-  background: #35373C url('../images/hero/hero-pricing.jpg') no-repeat 50% 50%;
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('hero/hero-pricing.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1739,7 +1744,8 @@ body.sticky-page-nav .overview-section {
   font-size: 14px;
 }
 .about-page .hero-holder {
-  background: #35373C url('../images/hero/hero-about.jpg') no-repeat 50% 50%;
+  background: #35373C no-repeat 50% 50;
+  background-image: image-url('hero/hero-about.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1886,7 +1892,8 @@ body.sticky-page-nav .overview-section {
   color: #fff;
 }
 .career-page .hero-holder {
-  background: #35373C url('../images/hero/hero-career.jpg') no-repeat 50% 50%;
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('hero/hero-career.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1992,7 +1999,8 @@ body.sticky-page-nav .overview-section {
   height: 360px;
 }
 .job-single-page .hero-holder {
-  background: #35373C url('../images/hero/hero-job-single.jpg') no-repeat 50% 50%;
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('hero/hero-job-sinlge.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -2036,7 +2044,8 @@ body.sticky-page-nav .overview-section {
   font-weight: 500;
 }
 .blog-page .hero-holder {
-  background: #35373C url('../images/hero/hero-blog.jpg') no-repeat 50% 50%;
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('hero/hero-blog.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -2084,28 +2093,32 @@ body.sticky-page-nav .overview-section {
   height: 340px;
 }
 .posts-promo-block .item-1 .figure-holder {
-  background: #35373C url('../images/blog/featured-4.jpg') no-repeat 50% 50%;
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('blog/featured-4.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 .posts-promo-block .item-2 .figure-holder {
-  background: #35373C url('../images/blog/featured-2.jpg') no-repeat 50% 50%;
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('blog/featured-2.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 .posts-promo-block .item-3 .figure-holder {
-  background: #35373C url('../images/blog/featured-3.jpg') no-repeat 50% 50%;
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('blog/featured-3.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 .posts-promo-block .item-4 .figure-holder {
-  background: #35373C url('../images/blog/featured-1.jpg') no-repeat 50% 50%;
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('blog/featured-1.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -2331,7 +2344,8 @@ body.sticky-page-nav .overview-section {
   background: rgba(0, 0, 0, 0.5);
 }
 .blog-single-page .hero-holder {
-  background: #35373C url('../images/hero/hero-blog-single.jpg') no-repeat 50% 50%;
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('hero/hero-blog-single.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -2520,7 +2534,8 @@ body.sticky-page-nav .overview-section {
   opacity: 0.9;
 }
 .support-page .hero-holder {
-  background: #35373C url('../images/hero/hero-support.jpg') no-repeat 50% 50%;
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('hero/hero-support.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -2686,7 +2701,8 @@ body.sticky-page-nav .overview-section {
   height: 360px;
 }
 .contact-page .hero-holder {
-  background: #35373C url('../images/hero/hero-contact.jpg') no-repeat 50% 50%;
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('hero/hero-contact.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
