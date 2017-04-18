@@ -1528,7 +1528,7 @@ body.sticky-page-nav .overview-section {
   font-size: 14px;
   margin-bottom: 15px;
 }
-.pricing-page .hero-holder {
+.pricing .hero-holder {
   background: #35373C no-repeat 50% 50%;
   background-image: image-url('hero/hero-pricing.jpg');
   -webkit-background-size: cover;
@@ -1536,10 +1536,10 @@ body.sticky-page-nav .overview-section {
   -o-background-size: cover;
   background-size: cover;
 }
-.pricing-page .actions {
+.pricing .actions {
   margin-top: 60px;
 }
-.pricing-page .actions a {
+.pricing .actions a {
   color: #fff;
   margin-bottom: 10px;
   display: block;
@@ -1547,23 +1547,23 @@ body.sticky-page-nav .overview-section {
   -moz-opacity: 0.8;
   opacity: 0.8;
 }
-.pricing-page .actions a:hover {
+.pricing .actions a:hover {
   -webkit-opacity: 1;
   -moz-opacity: 1;
   opacity: 1;
   text-decoration: none;
 }
-.pricing-page .actions a img {
+.pricing .actions a img {
   -webkit-opacity: 0.7;
   -moz-opacity: 0.7;
   opacity: 0.7;
 }
-.pricing-page .actions a img:hover {
+.pricing .actions a img:hover {
   -webkit-opacity: 1;
   -moz-opacity: 1;
   opacity: 1;
 }
-.pricing-page .heading-section {
+.pricing .heading-section {
   padding-top: 180px;
 }
 .pricing-block {
@@ -1743,7 +1743,7 @@ body.sticky-page-nav .overview-section {
 .faqs-block .panel-body {
   font-size: 14px;
 }
-.about-page .hero-holder {
+.about .hero-holder {
   background: #35373C no-repeat 50% 50;
   background-image: image-url('hero/hero-about.jpg');
   -webkit-background-size: cover;
@@ -1751,10 +1751,10 @@ body.sticky-page-nav .overview-section {
   -o-background-size: cover;
   background-size: cover;
 }
-.about-page .actions {
+.about .actions {
   margin-top: 60px;
 }
-.about-page .actions a {
+.about .actions a {
   color: #fff;
   margin-bottom: 10px;
   display: block;
@@ -1762,23 +1762,23 @@ body.sticky-page-nav .overview-section {
   -moz-opacity: 0.8;
   opacity: 0.8;
 }
-.about-page .actions a:hover {
+.about .actions a:hover {
   -webkit-opacity: 1;
   -moz-opacity: 1;
   opacity: 1;
   text-decoration: none;
 }
-.about-page .actions a img {
+.about .actions a img {
   -webkit-opacity: 0.7;
   -moz-opacity: 0.7;
   opacity: 0.7;
 }
-.about-page .actions a img:hover {
+.about .actions a img:hover {
   -webkit-opacity: 1;
   -moz-opacity: 1;
   opacity: 1;
 }
-.about-page .heading-section {
+.about .heading-section {
   padding-top: 180px;
 }
 .team-block {

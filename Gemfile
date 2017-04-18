@@ -22,6 +22,7 @@ gem 'annotate'
 gem 'figaro'
 gem 'stripe'
 gem 'rails-assets-flexslider', source: 'https://rails-assets.org'
+gem 'rails-assets-jquery.scrollTo', source: 'https://rails-assets.org'
 gem "font-awesome-rails"
 gem 'cocoon'
 

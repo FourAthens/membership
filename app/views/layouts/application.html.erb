@@ -8,12 +8,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
   <%= csrf_meta_tags %>
 </head>
-<body data-spy="scroll" data-target="#page-nav">
+<body data-spy="scroll" data-target="#page-nav" class="<%= params[:id] %>">
   <!-- ******HEADER****** -->
   <header id="header" class="header">
     <div class="container">
       <h1 class="logo">
-        <%= link_to 'Home', root_path, class: 'navbar-brand' %>
+        <%= link_to(image_tag('fourathens-logo.png', height: "50"), root_path) %>
       </h1><!--//logo-->
       <%= render 'layouts/navigation' %>
     </div><!--//container-->
@@ -21,6 +21,7 @@
   <%= render 'layouts/messages' %>
   <%= yield %>
 
+  <%= render 'layouts/footer' %>
   <%= render 'layouts/modals' %>
 </body>
 </html>
