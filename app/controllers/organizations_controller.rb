@@ -4,11 +4,16 @@ class OrganizationsController < ApplicationController
     end
 
   def create
-    @organization = Organization.new
+    @organization = Organization.new(secure_params)
     if @organization.save
-      redirect_to root_path
+      #
     else
       render new
     end
+  end
+
+  private
+  def secure_params
+    params.require(:organization).permit(:name)
   end
 end
