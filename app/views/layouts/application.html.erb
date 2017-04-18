@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Membership" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Membership" %>">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <header>
-
-    </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
-  </body>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Membership" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Membership" %>">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+  <%= csrf_meta_tags %>
+</head>
+<body data-spy="scroll" data-target="#page-nav">
+  <!-- ******HEADER****** -->
+  <header id="header" class="header">
+    <div class="container">
+      <h1 class="logo">
+        <%= link_to 'Home', root_path, class: 'navbar-brand' %>
+      </h1><!--//logo-->
+      <%= render 'layouts/navigation' %>
+    </div><!--//container-->
+  </header><!--//header-->
+  <%= render 'layouts/messages' %>
+  <%= yield %>
+</body>
 </html>
