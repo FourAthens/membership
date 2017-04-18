@@ -15,4 +15,5 @@
 //= require cocoon
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require flexslider
 //= require_tree .
