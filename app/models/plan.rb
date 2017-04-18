@@ -14,5 +14,9 @@ class Plan < ApplicationRecord
   has_many :subscrptions
   has_many :profiles, through: :subscriptions
 
+  has_many :plan_details, inverse_of: :plan, dependent: :destroy
+
+  accepts_nested_attributes_for :plan_details
+
   enum frequency: [:monthly, :yearly]
 end

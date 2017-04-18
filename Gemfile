@@ -22,6 +22,7 @@ gem 'annotate'
 gem 'figaro'
 gem 'stripe'
 gem 'rails-assets-flexslider', source: 'https://rails-assets.org'
+gem 'cocoon'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
