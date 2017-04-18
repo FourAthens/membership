@@ -1,5 +1,6 @@
 class PlansController < ApplicationController
   before_action :enforce_admin
+  before_action :find_plan only: [:edit, :show, :update, :destroy]
 
   def index
     @plans = Plan.all
@@ -25,6 +26,11 @@ class PlansController < ApplicationController
   end
 
   def update
+    if @plan.update(plan_params)
+      redirect_to @plan, success: "Plan updated!"
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -36,6 +42,10 @@ class PlansController < ApplicationController
     unless user_signed_in? && current_user.admin?
       redirect_to new_user_session_path, notice: "You're not allowed to access that."
     end
+  end
+
+  def find_plan
+    @plan = Plan.find(params[:id])
   end
 
   def plan_params
