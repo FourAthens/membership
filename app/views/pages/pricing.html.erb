@@ -27,136 +27,33 @@
   <div class="container">
     <h2 class="block-heading text-center">30 day FREE trial with all plans! </h2>
     <div class="row">
-      <div class="item item-1 col-xs-12 col-sm-6 col-md-3">
-        <div class="item-inner">
-          <div class="summary-box text-center">
-            <h3 class="item-heading">Starter</h3>
-            <div class="item-intro">For basic use lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>
-            <div class="price">
-              <span class="currency">$</span>
-              <span class="number">5</span>
-            </div><!--//price-->
-            <div class="unit">Per month</div>
-            <div class="action">
-              <div class="btn-container"><a href="#" class="btn btn-secondary btn-ghost">Sign Up Now</a></div>
-              <div class="note">(30 day free trial)</div>
-            </div>
-          </div><!--//summary-box-->
-          <div class="details-box">
-            <ul class="details-list list-unstyled">
-              <li><i class="fa fa-check" aria-hidden="true"></i> 1 User</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> 10 GB file storage</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Email support</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Free update</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Native apps</li>
-            </ul>
-          </div><!--//details-box-->
 
-        </div><!--//item-inner-->
-      </div><!--//item-->
-      <div class="item item-2 col-xs-12 col-sm-6 col-md-3">
-        <div class="item-inner">
-          <div class="summary-box text-center">
-            <h3 class="item-heading">Pro</h3>
-            <div class="item-intro">For pro use lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>
-            <div class="price">
-              <span class="currency">$</span>
-              <span class="number">10</span>
-            </div><!--//price-->
-            <div class="unit">Per month</div>
-            <div class="action">
-              <div class="btn-container"><a href="#" class="btn btn-secondary btn-ghost">Sign Up Now</a></div>
-              <div class="note">(30 day free trial)</div>
-            </div>
-          </div><!--//summary-box-->
-          <div class="details-box">
-            <ul class="details-list list-unstyled">
-              <li><i class="fa fa-check" aria-hidden="true"></i> 10 User</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> 30 GB file storage</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Email priority support</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Free update</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Native apps</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option one</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option two</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option three</li>
-            </ul>
-          </div><!--//details-box-->
+      <% @monthly_plans.each do |plan| %>
+        <div class="item item-<%= plan.id %> col-xs-12 col-sm-6 col-md-3">
+          <div class="item-inner">
+            <div class="summary-box text-center">
+              <h3 class="item-heading"><%= plan.name %></h3>
+              <div class="item-intro">For basic use lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>
+              <div class="price">
+                <span class="number"><%= number_to_currency(plan.price / 100) %></span>
+              </div><!--//price-->
+              <div class="unit"> <%= plan.frequency %> </div>
+              <div class="action">
+                <div class="btn-container"><a href="#" class="btn btn-secondary btn-ghost">Sign Up Now</a></div>
+                <div class="note">(30 day free trial)</div>
+              </div>
+            </div><!--//summary-box-->
+            <div class="details-box">
+              <ul class="details-list list-unstyled">
+                <% plan.plan_details.each do |detail| %>
+                  <li><i class="fa fa-check" aria-hidden="true"></i> <%= detail.content %></li>
+                <% end %>
+              </ul>
+            </div><!--//details-box-->
 
-        </div><!--//item-inner-->
-      </div><!--//item-->
-      <div class="item item-3 item-popular col-xs-12 col-sm-6 col-md-3">
-        <div class="item-inner">
-          <div class="popular-tag text-center">
-            Most Popular
-          </div>
-          <div class="summary-box text-center">
-            <h3 class="item-heading">Team</h3>
-            <div class="item-intro">For team use lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>
-            <div class="price">
-              <span class="currency">$</span>
-              <span class="number">25</span>
-            </div><!--//price-->
-            <div class="unit">Per month</div>
-            <div class="action">
-              <div class="btn-container"><a href="#" class="btn btn-secondary btn-ghost">Sign Up Now</a></div>
-              <div class="note">(30 day free trial)</div>
-            </div>
-          </div><!--//summary-box-->
-          <div class="details-box">
-            <ul class="details-list list-unstyled">
-              <li><i class="fa fa-check" aria-hidden="true"></i> 100 User</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> 100 GB file storage</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Email priority support</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Free update</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Native apps</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option one</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option two</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option three</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option four</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option five</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option six</li>
-            </ul>
-          </div><!--//details-box-->
-
-        </div><!--//item-inner-->
-      </div><!--//item-->
-      <div class="item item-4 col-xs-12 col-sm-6 col-md-3">
-        <div class="item-inner">
-          <div class="summary-box text-center">
-            <h3 class="item-heading">Enterprise</h3>
-            <div class="item-intro">For team use lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>
-            <div class="price">
-              <span class="currency">$</span>
-              <span class="number">299</span>
-            </div><!--//price-->
-            <div class="unit">Per month</div>
-            <div class="action">
-              <div class="btn-container"><a href="#" class="btn btn-secondary btn-ghost">Sign Up Now</a></div>
-              <div class="note">(30 day free trial)</div>
-            </div>
-          </div><!--//summary-box-->
-          <div class="details-box">
-            <ul class="details-list list-unstyled">
-              <li><i class="fa fa-check" aria-hidden="true"></i> Unlimited User</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Unlimited file storage</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> 24/7 support</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Free update</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Native apps</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option one</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option two</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option three</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option four</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option five</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option six</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option seven</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option eight</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option nine</li>
-              <li><i class="fa fa-check" aria-hidden="true"></i> Advanced option ten</li>
-            </ul>
-          </div><!--//details-box-->
-
-        </div><!--//item-inner-->
-      </div><!--//item-->
+          </div><!--//item-inner-->
+        </div><!--//item-->
+      <% end %>
     </div><!--//row-->
   </div><!--//container-->
 </div><!--//pricing-block-->
