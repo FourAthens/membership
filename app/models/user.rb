@@ -44,6 +44,7 @@
 class User < ApplicationRecord
   has_one :profile, as: :profileable
   belongs_to :organization, foreign_key: :organization_id
+  accepts_nested_attributes_for :profile
 
   enum role: [:user, :org_admin, :admin]
   after_initialize :set_default_role, :if => :new_record?
