@@ -9,6 +9,7 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  stripe_plan_id :string
+#  description    :text
 #
 
 class Plan < ApplicationRecord

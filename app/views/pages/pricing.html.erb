@@ -5,10 +5,10 @@
   </div><!--//hero-wrapper-->
   <div class="container heading-content">
     <h2 class="headline">Membership Details</h2>
-    <div class="intro">You can change your plan at any time.</div>
+    <div class="intro">Our membership plans grow with you</div>
     <div class="actions">
-     <a class="scrollto" href="#pricing-block">View Plans</a>
-     <a class="scrollto" href="#pricing-block"><%= image_tag 'arrow-icon.svg'%></a>
+     <a class="scrollto" href="#monthly-pricing-block">View Plans</a>
+     <a class="scrollto" href="#monthly-pricing-block"><%= image_tag 'arrow-icon.svg'%></a>
    </div><!--//actions-->
  </div><!--//container-->
 </section><!--//heading-section-->
@@ -17,40 +17,80 @@
   <div id="page-nav-wrapper" class="page-nav-wrapper text-center">
     <div class="container">
       <ul id="page-nav" class="page-nav nav list-inline">
-        <li><a class="scrollto" href="#pricing-block">Pricing</a></li>
-        <li><a class="scrollto"  href="#faqs-block">FAQs</a></li>
+        <li><a class="scrollto" href="#monthly-pricing-block">Monthly Plans</a></li>
+        <li><a class="scrollto" href="#annual-pricing-block">Annual Plans</a></li>
+        <!-- <li><a class="scrollto"  href="#faqs-block">FAQs</a></li> -->
       </ul><!--//page-nav-->
     </div>
   </div><!--//page-nav-wrapper-->
 </div><!--//page-nav-space-holder-->
-<div class="pricing-block" id="pricing-block">
+<div class="pricing-block" id="monthly-pricing-block">
   <div class="container">
-    <h2 class="block-heading text-center">30 day FREE trial with all plans! </h2>
+    <h2 class="block-heading text-center">Monthly Membership Plans</h2>
     <div class="row">
-
       <% @monthly_plans.each do |plan| %>
         <div class="item item-<%= plan.id %> col-xs-12 col-sm-6 col-md-3">
           <div class="item-inner">
             <div class="summary-box text-center">
               <h3 class="item-heading"><%= plan.name %></h3>
-              <div class="item-intro">For basic use lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>
+              <div class="item-intro"><%= plan.description %></div>
               <div class="price">
                 <span class="number"><%= number_to_currency(plan.price / 100) %></span>
               </div><!--//price-->
               <div class="unit"> <%= plan.frequency %> </div>
               <div class="action">
-                <div class="btn-container"><a href="#" class="btn btn-secondary btn-ghost">Sign Up Now</a></div>
-                <div class="note">(30 day free trial)</div>
+                <div class="btn-container">
+                  <%= link_to "Join Now", new_profile_path(stripe_plan_id: plan.stripe_plan_id), class: 'btn btn-secondary btn-ghost' %>
+                </div>
               </div>
             </div><!--//summary-box-->
             <div class="details-box">
-              <ul class="details-list list-unstyled">
+              <ul class="details-list plan-details list-unstyled">
                 <% plan.plan_details.each do |detail| %>
-                  <li><i class="fa fa-check" aria-hidden="true"></i> <%= detail.content %></li>
+                  <% if detail.href.blank? %>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> <%= detail.content %></li>
+                  <% else %>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> <%= link_to detail.content, detail.href %></li>
+                  <% end %>
                 <% end %>
               </ul>
             </div><!--//details-box-->
-
+          </div><!--//item-inner-->
+        </div><!--//item-->
+      <% end %>
+    </div><!--//row-->
+  </div><!--//container-->
+</div><!--//pricing-block-->
+<div class="pricing-block" id="annual-pricing-block">
+  <div class="container">
+    <h2 class="block-heading text-center">Annual Membership Plans</h2>
+    <div class="row">
+      <% @yearly_plans.each do |plan| %>
+        <div class="item item-<%= plan.id %> col-xs-12 col-sm-6 col-md-3">
+          <div class="item-inner">
+            <div class="summary-box text-center">
+              <h3 class="item-heading"><%= plan.name %></h3>
+              <div class="item-intro"><%= plan.description %></div>
+              <div class="price">
+                <span class="number"><%= number_to_currency(plan.price / 100) %></span>
+              </div><!--//price-->
+              <div class="unit"> <%= plan.frequency %> </div>
+              <div class="action">
+                <div class="btn-container"><a href="#" class="btn btn-secondary btn-ghost">Join Now</a></div>
+                <div class="note">Two months free!</div>
+              </div>
+            </div><!--//summary-box-->
+            <div class="details-box">
+              <ul class="details-list plan-details list-unstyled">
+                <% plan.plan_details.each do |detail| %>
+                  <% if detail.href.blank? %>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> <%= detail.content %></li>
+                  <% else %>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> <%= link_to detail.content, detail.href %></li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div><!--//details-box-->
           </div><!--//item-inner-->
         </div><!--//item-->
       <% end %>
@@ -58,7 +98,7 @@
   </div><!--//container-->
 </div><!--//pricing-block-->
 
-<div class="faqs-block" id="faqs-block">
+<!-- <div class="faqs-block" id="faqs-block">
   <div class="container">
     <h2 class="block-heading text-center">Frequently Asked Questions</h2>
     <div class="row">
@@ -243,4 +283,4 @@
     </div><!--//row-->
 
   </div>
-</div><!--//faqs-block-->
+</div><!--//faqs-block--> -->

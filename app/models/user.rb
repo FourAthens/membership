@@ -43,7 +43,7 @@
 
 class User < ApplicationRecord
   has_one :profile, as: :profileable
-  belongs_to :organization, foreign_key: :organization_id
+  belongs_to :organization, foreign_key: :organization_id, optional: true
   accepts_nested_attributes_for :profile
 
   enum role: [:user, :org_admin, :admin]

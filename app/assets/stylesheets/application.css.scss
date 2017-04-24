@@ -18,3 +18,7 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "startup_kit";
+
+.plan-details a {color: #fff; border-bottom: 1px solid #fff; &:hover {text-decoration: none; border-bottom: 0;}}
+.alpha {padding-left: 0;}
+.omega {padding-right: 0;}

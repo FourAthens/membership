@@ -55,10 +55,11 @@
 
 Rails.application.routes.draw do
 
-  get "/*id" => 'pages#show'
+  get "pages/*id" => 'pages#show', as: :page, format: false
   root to: 'visitors#index'
   devise_for :users, controllers: { registrations: "users/registrations", sessions: "users/sessions" }
   resources :users
   resources :organizations
   resources :plans
+  resources :profiles
 end
