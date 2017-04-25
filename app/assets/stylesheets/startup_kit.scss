@@ -6,6 +6,10 @@
  * Twitter: @3rdwave_themes
 */
 /* ======= Base ======= */
+
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 body {
   overflow-x: hidden;
   font-family: 'Noto Sans', sans-serif;
@@ -347,6 +351,7 @@ textarea {
   margin-top: 0;
   margin-bottom: 15px;
   font-size: 36px;
+  line-height: 70%;
 }
 .heading-section .heading-content .tagline {
   font-size: 16px;
@@ -1795,6 +1800,42 @@ body.sticky-page-nav .overview-section {
   max-width: 720px;
   margin: 0 auto;
   margin-bottom: 30px;
+}
+ul.items {
+  margin: 10px auto;
+  padding: 0;
+  list-style: none;
+  width: 700px;
+}
+ul.items li {
+ display: inline-table;
+ margin: 12px 10px 30px 10px;
+ padding: 0;
+ text-align: center;
+ width: 130px;
+}
+ul.items li .pillar {
+  font-size: 40px;
+  line-height: 100px;
+  font-family: 'Slabo 27px', serif;
+  font-weight: 300;
+  color: #0083b3;
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+  border: 1.3px solid #0083b3;
+  border-radius: 100px;
+}
+ul.items li .text {
+  font-family: 'Lato', serif;
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: #0083b3;
+  font-weight: 200px;
+  text-align:center;
 }
 .team-block .block-cta {
   margin-bottom: 60px;
