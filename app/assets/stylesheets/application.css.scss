@@ -22,3 +22,19 @@
 .plan-details a {color: #fff; border-bottom: 1px solid #fff; &:hover {text-decoration: none; border-bottom: 0;}}
 .alpha {padding-left: 0;}
 .omega {padding-right: 0;}
+
+input::placeholder {
+  color: #aaa;
+}
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #aaa;
+}
+input::-moz-placeholder { /* Firefox 19+ */
+  color: #aaa;
+}
+input:-ms-input-placeholder { /* IE 10+ */
+  color: #aaa;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: #aaa;
+}
