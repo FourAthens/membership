@@ -1837,6 +1837,50 @@ ul.items li .text {
   font-weight: 200px;
   text-align:center;
 }
+.team-block .item {
+  margin-bottom: 30px;
+  width: 250px;
+}
+.team-block .item-inner {
+  color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.team-block .item-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.team-block .item-intro {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+.team-block .pillar-box {
+  padding: 30px;
+  background: #0e83cd;
+  -webkit-border-top-right-radius: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -webkit-border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -moz-border-radius-topleft: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
 .team-block .block-cta {
   margin-bottom: 60px;
 }
