@@ -1533,6 +1533,22 @@ body.sticky-page-nav .overview-section {
   font-size: 14px;
   margin-bottom: 15px;
 }
+.interior .hero-holder {
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('interior.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.benefits .hero-holder {
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('benefits.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 .pricing .hero-holder {
   background: #35373C no-repeat 50% 50%;
   background-image: image-url('hero/hero-pricing.jpg');

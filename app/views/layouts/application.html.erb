@@ -8,9 +8,8 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-
 </head>
-<body data-spy="scroll" data-target="#page-nav" class="<%= params[:id] %>">
+<body data-spy="scroll" data-target="#page-nav" class="<%= params[:id] || "interior" %>">
   <!-- ******HEADER****** -->
   <header id="header" class="header">
     <div class="container">

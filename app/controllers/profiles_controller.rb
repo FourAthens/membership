@@ -16,7 +16,11 @@ class ProfilesController < ApplicationController
       Subscription.create(profile_id: @profile.id, plan_id: @plan.id, status: response.status)
       @profile.update(stripe_customer_id: response.customer, cc_exp_month: params[:user][:profile_attributes][:cc_exp_month], cc_exp_year: params[:user][:profile_attributes][:cc_exp_year], street_address: params[:user][:profile_attributes][:street_address], city: params[:user][:profile_attributes][:city], state: params[:user][:profile_attributes][:state], zip_code: params[:user][:profile_attributes][:zip_code])
       sign_in @user
-      redirect_to @profile
+      if @plan.stripe_plan_id == "individual-monthly" || @plan.stripe_plan_id == "individual-annual"
+        redirect_to @profile, success: "Congrats! Welcome to Four Athens!"
+      else
+        redirect_to new_organization_path, success: "Set up your organization account"
+      end
     else
       render :new
     end
