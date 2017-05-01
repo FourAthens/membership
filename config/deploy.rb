@@ -24,6 +24,7 @@ set :puma_init_active_record, true
 set :puma_bind, "unix:///var/www/membership/shared/tmp/sockets/puma.sock"
 set :puma_env, fetch(:rack_env, fetch(:rails_env, 'production'))
 set :nginx_use_ssl, false
+append :rbenv_map_bins, 'puma', 'pumactl'
 
 set :migration_role, 'app'            # Defaults to 'db'
 set :conditionally_migrate, true      # Defaults to false. If true, it's skip migration if files in db/migrate not modified
