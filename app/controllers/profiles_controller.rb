@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:show, :edit, :update]
 
   def new
     @user = User.new
@@ -26,7 +26,20 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def edit
+    @profile = Profile.find(params[:id])
+    @entity = @profile.profileable
+    @user = current_user
+  end
+
+  def update
+    @profile = Profile.find(params[:id])
+    current_user.update_without_password(user_params)
+    redirect_to @profile
+  end
+
   def show
+    @profile = Profile.find(params[:id])
   end
 
   private

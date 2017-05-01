@@ -6,7 +6,7 @@
         <li><%= link_to 'Users', users_path %></li>
       <% end %>
       <li><%= link_to 'Benefits', page_path('benefits') %></li>
-      <li><%= link_to 'Edit account', edit_user_registration_path %></li>
+      <li><%= link_to 'Edit account', edit_profile_path(current_user.profile) %></li>
       <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
     </ul>
   </li><!--//dropdown -->

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    resource = current_user
   end
 
   def show

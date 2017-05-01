@@ -30,10 +30,7 @@
 #                    users GET    /users(.:format)                   users#index
 #                          POST   /users(.:format)                   users#create
 #                 new_user GET    /users/new(.:format)               users#new
-#                edit_user GET    /users/:id/edit(.:format)          users#edit
 #                     user GET    /users/:id(.:format)               users#show
-#                          PATCH  /users/:id(.:format)               users#update
-#                          PUT    /users/:id(.:format)               users#update
 #                          DELETE /users/:id(.:format)               users#destroy
 #            organizations GET    /organizations(.:format)           organizations#index
 #                          POST   /organizations(.:format)           organizations#create
@@ -51,6 +48,14 @@
 #                          PATCH  /plans/:id(.:format)               plans#update
 #                          PUT    /plans/:id(.:format)               plans#update
 #                          DELETE /plans/:id(.:format)               plans#destroy
+#                 profiles GET    /profiles(.:format)                profiles#index
+#                          POST   /profiles(.:format)                profiles#create
+#              new_profile GET    /profiles/new(.:format)            profiles#new
+#             edit_profile GET    /profiles/:id/edit(.:format)       profiles#edit
+#                  profile GET    /profiles/:id(.:format)            profiles#show
+#                          PATCH  /profiles/:id(.:format)            profiles#update
+#                          PUT    /profiles/:id(.:format)            profiles#update
+#                          DELETE /profiles/:id(.:format)            profiles#destroy
 #
 
 Rails.application.routes.draw do
@@ -58,7 +63,7 @@ Rails.application.routes.draw do
   get "pages/*id" => 'pages#show', as: :page, format: false
   root to: 'visitors#index'
   devise_for :users, controllers: { registrations: "users/registrations", sessions: "users/sessions" }
-  resources :users
+  resources :users, except: [:edit, :update]
   resources :organizations
   resources :plans
   resources :profiles
