@@ -52,10 +52,10 @@ test:
 
 production:
   adapter:  postgresql
-  host:     localhost
+  host:     <%= ENV['db_host'] %>
   encoding: unicode
-  database: membership_production
+  database: membersfourathens
   pool:     5
-  username: postgres
-  password: password
+  username: fourathens
+  password: <%= ENV['db_password'] %>
   template: template0
