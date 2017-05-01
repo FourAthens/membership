@@ -1827,14 +1827,11 @@ ul.items {
   margin: 10px auto;
   padding: 0;
   list-style: none;
-  width: 700px;
 }
 ul.items li {
  display: inline-table;
- margin: 12px 10px 30px 10px;
- padding: 0;
+ padding: 0 1em;
  text-align: center;
- width: 130px;
 }
 ul.items li .pillar {
   font-size: 40px;
