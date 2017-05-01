@@ -54,8 +54,10 @@ canopy_details = [
 ]
 individual_monthly = Plan.create(name: "Individual", price: 2500, frequency: 'monthly', stripe_plan_id: "individual-monthly", description: "Just getting started or a solo entrepreneur? Get access to the resources of Four Athens")
 all_details.each { |det| individual_monthly.plan_details.create(det) }
+individual_monthly.plan_details.create({content: "ATDC Educate Membership", href: "http://atdc.org/join-atdc-educate-program/"})
 individual_yearly = Plan.create(name: "Individual", price: 25000, frequency: 'yearly', stripe_plan_id: "individual-annual", description: "Just getting started or a solo entrepreneur? Get access to the resources of Four Athens")
 all_details.each { |det| individual_yearly.plan_details.create(det) }
+individual_yearly.plan_details.create({content: "ATDC Educate Membership", href: "http://atdc.org/join-atdc-educate-program/"})
 seedling_monthly = Plan.create(name: "Seedling", price: 10000, frequency: 'monthly', stripe_plan_id: "seedling-monthly", description: "Getting started is hard. We make it easier by giving you access to resources to help your startup grow. For startups up to $100k a year in revenue and 5 employees or fewer.")
 all_details.each { |det| seedling_monthly.plan_details.create(det) }
 seedling_details.each { |det| seedling_monthly.plan_details.create(det) }
