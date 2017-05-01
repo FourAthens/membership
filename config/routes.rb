@@ -1,10 +1,11 @@
 # == Route Map
 #
 #                   Prefix Verb   URI Pattern                        Controller#Action
+#                     page GET    /pages/*id                         pages#show
 #                     root GET    /                                  visitors#index
-#         new_user_session GET    /users/sign_in(.:format)           devise/sessions#new
-#             user_session POST   /users/sign_in(.:format)           devise/sessions#create
-#     destroy_user_session DELETE /users/sign_out(.:format)          devise/sessions#destroy
+#         new_user_session GET    /users/sign_in(.:format)           users/sessions#new
+#             user_session POST   /users/sign_in(.:format)           users/sessions#create
+#     destroy_user_session DELETE /users/sign_out(.:format)          users/sessions#destroy
 #        new_user_password GET    /users/password/new(.:format)      devise/passwords#new
 #       edit_user_password GET    /users/password/edit(.:format)     devise/passwords#edit
 #            user_password PATCH  /users/password(.:format)          devise/passwords#update
@@ -34,14 +35,31 @@
 #                          PATCH  /users/:id(.:format)               users#update
 #                          PUT    /users/:id(.:format)               users#update
 #                          DELETE /users/:id(.:format)               users#destroy
-#                     page GET    /pages/*id                         high_voltage/pages#show
+#            organizations GET    /organizations(.:format)           organizations#index
+#                          POST   /organizations(.:format)           organizations#create
+#         new_organization GET    /organizations/new(.:format)       organizations#new
+#        edit_organization GET    /organizations/:id/edit(.:format)  organizations#edit
+#             organization GET    /organizations/:id(.:format)       organizations#show
+#                          PATCH  /organizations/:id(.:format)       organizations#update
+#                          PUT    /organizations/:id(.:format)       organizations#update
+#                          DELETE /organizations/:id(.:format)       organizations#destroy
+#                    plans GET    /plans(.:format)                   plans#index
+#                          POST   /plans(.:format)                   plans#create
+#                 new_plan GET    /plans/new(.:format)               plans#new
+#                edit_plan GET    /plans/:id/edit(.:format)          plans#edit
+#                     plan GET    /plans/:id(.:format)               plans#show
+#                          PATCH  /plans/:id(.:format)               plans#update
+#                          PUT    /plans/:id(.:format)               plans#update
+#                          DELETE /plans/:id(.:format)               plans#destroy
 #
 
 Rails.application.routes.draw do
 
+  get "pages/*id" => 'pages#show', as: :page, format: false
   root to: 'visitors#index'
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users, controllers: { registrations: "users/registrations", sessions: "users/sessions" }
   resources :users
   resources :organizations
   resources :plans
+  resources :profiles
 end

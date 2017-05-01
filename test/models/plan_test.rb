@@ -2,12 +2,14 @@
 #
 # Table name: plans
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  price      :integer
-#  frequency  :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id             :integer          not null, primary key
+#  name           :string
+#  price          :integer
+#  frequency      :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  stripe_plan_id :string
+#  description    :text
 #
 
 require 'test_helper'

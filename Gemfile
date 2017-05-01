@@ -22,6 +22,8 @@ gem 'annotate'
 gem 'figaro'
 gem 'stripe'
 gem 'rails-assets-flexslider', source: 'https://rails-assets.org'
+gem 'rails-assets-jquery.scrollTo', source: 'https://rails-assets.org'
+gem "font-awesome-rails"
 gem 'cocoon'
 
 group :development do
@@ -36,6 +38,7 @@ group :development do
   gem 'capistrano-rails-console'
   gem 'capistrano-rvm', '~> 0.1.1'
   gem 'rails_layout'
+  gem 'binding_of_caller'
 end
 
 group :development, :test do

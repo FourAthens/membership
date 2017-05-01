@@ -1,23 +1,41 @@
-<div class="authform">
-  <%= form_for(@user, :html => { :role => 'form'}) do |f| %>
-    <h3>Sign up</h3>
-    <%= devise_error_messages! %>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
-    </div>
-     <%= f.submit 'Sign up', :class => 'button right' %>
-  <% end %>
+<section class="heading-section section section-on-bg">
+  <div class="hero-wrapper">
+    <div class="hero-holder"></div>
+    <div class="hero-mask-solid"></div>
+  </div><!--//hero-wrapper-->
+  <div class="container heading-content">
+    <h2 class="headline">About Our Company</h2>
+    <div class="intro">Startup Kit is founded in 2016 with a distributed team lorem ipsum dolor sit amet <br>Aenean commodo ligula eget dolor. </div>
+    <div class="actions">
+      <a class="scrollto-no-offset" href="#team-block">Meet the team</a>
+      <a class="scrollto-no-offset" href="#team-block"><%= image_tag "arrow-icon.svg"%></a>
+    </div><!--//actions-->
+  </div><!--//container-->
+</section><!--//heading-section-->
+<div class="container">
+  <div class="row">
+    <div class="authform">
+      <%= form_for(@user, :html => { :role => 'form'}) do |f| %>
+        <h3>Sign up</h3>
+        <%= devise_error_messages! %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+         <%= f.submit 'Sign up', :class => 'button right' %>
+      <% end %>
+    </div>    
+  </div>
 </div>

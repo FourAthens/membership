@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require flexslider
+//= require jquery.scrollTo
 //= require_tree .

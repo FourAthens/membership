@@ -23,7 +23,7 @@
 #
 
 class Profile < ApplicationRecord
-  belongs_to :profileable, polymorphic: true
+  belongs_to :profileable, polymorphic: true, optional: true
   has_many :subscriptions
   has_many :plans, through: :subscriptions
 end
