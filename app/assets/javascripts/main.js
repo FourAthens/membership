@@ -57,11 +57,6 @@ $(document).ready(function() {
 
     });
 
-	/* ======= Stop Video Playing When Close the Modal Window ====== */
-    $("#modal-video .close").on("click", function() {
-        $("#modal-video iframe").attr("src", $("#modal-video iframe").attr("src"));
-    });
-
     /* ======= FAQ accordion ======= */
     function toggleIcon(e) {
     $(e.target)
