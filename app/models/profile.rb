@@ -16,6 +16,7 @@
 #  profileable_id     :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  brand              :string
 #
 # Indexes
 #
@@ -23,7 +24,7 @@
 #
 
 class Profile < ApplicationRecord
-  belongs_to :profileable, polymorphic: true
+  belongs_to :profileable, polymorphic: true, optional: true
   has_many :subscriptions
   has_many :plans, through: :subscriptions
 end

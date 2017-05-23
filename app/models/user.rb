@@ -8,7 +8,7 @@
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
-#  sign_in_count          :integer          default("0"), not null
+#  sign_in_count          :integer          default(0), not null
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
@@ -28,8 +28,9 @@
 #  invitation_limit       :integer
 #  invited_by_type        :string
 #  invited_by_id          :integer
-#  invitations_count      :integer          default("0")
+#  invitations_count      :integer          default(0)
 #  organization_id        :integer
+#  brand                  :string
 #
 # Indexes
 #
@@ -43,7 +44,8 @@
 
 class User < ApplicationRecord
   has_one :profile, as: :profileable
-  belongs_to :organization, foreign_key: :organization_id
+  belongs_to :organization, foreign_key: :organization_id, optional: true
+  accepts_nested_attributes_for :profile
 
   enum role: [:user, :org_admin, :admin]
   after_initialize :set_default_role, :if => :new_record?

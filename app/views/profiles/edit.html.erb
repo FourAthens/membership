@@ -1,0 +1,60 @@
+<section class="heading-section section section-on-bg">
+  <div class="hero-wrapper">
+    <div class="hero-holder"></div>
+    <div class="hero-mask-solid"></div>
+  </div><!--//hero-wrapper-->
+  <div class="container heading-content">
+    <h2 class="headline">Hi, <%= @entity.name %></h2>
+    <div class="intro">Keep your details up to date!</div>
+  </div><!--//container-->
+</section><!--//heading-section-->
+<div class="container">
+    <div class="authform">
+      <%= form_for(@profile, :html => { :method => :put, :role => 'form'}) do |f| %>
+        <% unless @entity.is_a?(User) %>
+          <div class="row">
+            <%= fields_for @entity do |ef| %>
+              <div class="col-sm-6">
+                <h3>Organization info</h3>
+                <div class="form-group">
+                  <%= ef.label :name %>
+                  <%= ef.text_field :name, :autofocus => true, class: 'form-control' %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="row">
+          <%= fields_for @user do |uf| %>
+            <div class="col-sm-6">
+              <h3>Account info</h3>
+              <div class="form-group">
+                <%= uf.label :name %>
+                <%= uf.text_field :name, :autofocus => true, class: 'form-control' %>
+              </div>
+              <div class="form-group">
+                <%= uf.label :email %>
+                <%= uf.email_field :email, class: 'form-control' %>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <h3>Change password</h3>
+              <fieldset>
+                <p>Leave these fields blank if you don't want to change your password.</p>
+                <div class="form-group">
+                  <%= uf.label :password %>
+                  <%= uf.password_field :password, :autocomplete => 'off', class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <%= uf.label :password_confirmation %>
+                  <%= uf.password_field :password_confirmation, class: 'form-control' %>
+                </div>
+              </fieldset>
+            </div>
+          <% end %>
+        </div>
+        <%= f.submit 'Update', :class => 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

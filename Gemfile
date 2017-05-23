@@ -22,6 +22,8 @@ gem 'annotate'
 gem 'figaro'
 gem 'stripe'
 gem 'rails-assets-flexslider', source: 'https://rails-assets.org'
+gem 'rails-assets-jquery.scrollTo', source: 'https://rails-assets.org'
+gem "font-awesome-rails"
 gem 'cocoon'
 
 group :development do
@@ -30,12 +32,16 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
-  gem 'capistrano', '~> 3.0.1'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails', '~> 1.1.0'
-  gem 'capistrano-rails-console'
-  gem 'capistrano-rvm', '~> 0.1.1'
+  gem 'capistrano', '~> 3.7.0'
+  gem 'capistrano-rails'
+  gem 'capistrano-rails-collection'
+  gem 'capistrano-rbenv', '~> 2.0'
+  gem 'capistrano3-puma'
+  gem 'capistrano-secrets-yml'
+  gem 'capistrano-faster-assets'
+  gem 'capistrano-figaro-yml', '~> 1.0.2'
   gem 'rails_layout'
+  gem 'binding_of_caller'
 end
 
 group :development, :test do

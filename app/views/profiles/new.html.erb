@@ -1,0 +1,143 @@
+<section class="heading-section section section-on-bg">
+  <div class="hero-wrapper">
+    <div class="hero-holder"></div>
+    <div class="hero-mask-solid"></div>
+  </div><!--//hero-wrapper-->
+  <div class="container heading-content">
+    <h2 class="headline">Join Four Athens</h2>
+    <div class="intro">Membership has its privileges. </div>
+  </div><!--//container-->
+</section><!--//heading-section-->
+<section class="section">
+  <div class="container">
+    <h2 class="block-heading text-center">Let's get some information from you</h2>
+    <div class="row">
+      <div id="flash-messages"></div>
+      <div class="login-form-container">
+        <%= form_for(@user, :url => profiles_path, method: :post, :html => { :class => 'login-form', id: 'profile-sign-up'}) do |f| %>
+          <%= hidden_field_tag :stripe_plan_id, params[:stripe_plan_id] %>
+          <div class="col-sm-6">
+            <div class="form-group email input-group">
+              <label class="sr-only" for="login-email"><i class="fa fa-envelope-o"></i> Email</label>
+              <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+              <%= f.email_field :email, :autofocus => true, class: 'form-control login-email', id: "login-email", placeholder: 'Email' %>
+            </div><!--//form-group-->
+            <div class="form-group email input-group">
+              <label class="sr-only" for="login-email"><i class="fa fa-user-circle"></i> Name</label>
+              <span class="input-group-addon"><i class="fa fa-user-circle"></i></span>
+              <%= f.text_field :name, class: 'form-control login-name', id: "login-name", placeholder: 'Name' %>
+            </div><!--//form-group-->
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group password input-group">
+              <label class="sr-only" for="login-password"><i class="fa fa-key"></i> Password</label>
+              <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+              <%= f.password_field :password, class: 'form-control login-password', id: 'login-password', placeholder: "Password" %>
+            </div><!--//form-group-->
+            <div class="form-group password input-group">
+              <label class="sr-only" for="login-password-confirmation"><i class="fa fa-key"></i> Password Confirmation</label>
+              <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+              <%= f.password_field :password_confirmation, class: 'form-control login-password-confirmation', id: 'login-password-confirmation', placeholder: "Password Confirmation" %>
+            </div><!--//form-group-->
+          </div>
+          <div class="col-sm-12">
+            <h3 class="text-center">Your plan is: <%= @plan.name %> <%= @plan.frequency %> at <%= number_to_currency(@plan.price / 100) %>/<%= @plan.frequency %> </h3>
+          </div>
+          <%= f.fields_for :profile do |p| %>
+            <div class="col-sm-6">
+              <h4 class="text-center">Credit Card Details</h4>
+              <div class="form-group input-group">
+                <label class="sr-only" for="login-email"><i class="fa fa-credit-card"></i> Credit Card Number</label>
+                <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                <%= phone_field_tag :card_number, nil, class: 'form-control card-number', id: "card-number", placeholder: 'Credit Card Number', 'data-stripe' => 'number' %>
+              </div><!--//form-group-->
+              <div class="form-group col-sm-4 alpha">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-credit-card-alt"></i></span>
+                  <%= p.phone_field :cc_exp_month, class: 'form-control', placeholder: "Expiration Month", 'data-stripe' => 'exp_month' %>
+                </div>
+              </div>
+              <div class="form-group col-sm-4">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-credit-card-alt"></i></span>
+                  <%= p.phone_field :cc_exp_year, class: 'form-control', placeholder: "Expiration Year", 'data-stripe' => 'exp_year' %>
+                </div>
+              </div>
+              <div class="col-sm-4 form-group omega">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-bank"></i></span>
+                  <%= phone_field_tag :cvc, nil, class: 'form-control cvc', placeholder: "CVC", 'data-stripe' => 'cvv' %>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <h4 class="text-center">Address</h4>
+              <div class="form-group input-group">
+                <label class="sr-only" for="street-address"><i class="fa fa-address-card-o"></i> Street Address</label>
+                <span class="input-group-addon"><i class="fa fa-address-card-o"></i></span>
+                <%= p.text_field :street_address, class: 'form-control street-address', id: 'street-address', placeholder: "Street Address (including Suite)" %>
+              </div>
+              <div class="form-group col-sm-4 alpha">
+                <div class="input-group">
+                  <label class="sr-only" for="city"><i class="fa fa-map-marker"></i> City</label>
+                  <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                  <%= p.text_field :city, class: 'form-control city', id: 'city', placeholder: "City" %>
+                </div>
+              </div>
+              <div class="form-group col-sm-4">
+                <%= p.select :state, options_for_select(us_states), {}, {class: 'form-control'} %>
+              </div>
+              <div class="form-group col-sm-4 omega">
+                <div class="input-group">
+                  <label class="sr-only" for="zipcode"><i class="fa fa-map-pin"></i> City</label>
+                  <span class="input-group-addon"><i class="fa fa-map-pin"></i></span>
+                  <%= p.phone_field :zip_code, class: 'form-control zipcode', id: 'zipcode', placeholder: "Zip Code" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <button type="submit" class="btn btn-cta btn-block btn-primary">Create Profile</button>
+        <% end %>
+      </div><!--//login-form-container-->
+    </div>
+  </div>
+</section>
+
+<script>
+
+  Stripe.setPublishableKey("<%= ENV['stripe_public_key'] %>");
+
+  jQuery(function ($) {
+  var show_error, stripeResponseHandler;
+  $("#profile-sign-up").submit(function (event) {
+    var $form;
+    $form = $(this);
+    $form.find("input[type=submit]").prop("disabled", true);
+    Stripe.card.createToken($form, stripeResponseHandler);
+    return false;
+  });
+
+  stripeResponseHandler = function (status, response) {
+    var $form, token;
+    $form = $("#profile-sign-up");
+    if (response.error) {
+      show_error(response.error.message);
+      $form.find("input[type=submit]").prop("disabled", false);
+    } else {
+      token = response.id;
+      $form.append($("<input type=\"hidden\" name=\"registration[card_token]\" />").val(token));
+      console.log(response)
+      $(".card-number").val('');
+      $(".cvc").val('');
+      $form.get(0).submit();
+    }
+    return false;
+  };
+
+  show_error = function (message) {
+    $("#flash-messages").html('<div class="alert alert-warning"><a class="close" data-dismiss="alert">×</a><div id="flash_alert">' + message + '</div></div>');
+    $('.alert').delay(5000).fadeOut(3000);
+    return false;
+  };
+});
+</script>

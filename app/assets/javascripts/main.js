@@ -37,25 +37,24 @@ $(document).ready(function() {
 	/* ======= Fixed page nav when scrolled ======= */
     $(window).on('scroll', function() {
 
-        $('#page-nav-wrapper').removeClass('fixed');
+        if ($('#page-nav-wrapper').length > 0) {
 
-         var scrollTop = $(this).scrollTop();
-         var topDistance = $('#page-nav-wrapper').offset().top;
-
-         if ( (topDistance) > scrollTop ) {
             $('#page-nav-wrapper').removeClass('fixed');
-            $('body').removeClass('sticky-page-nav');
-         }
-         else {
-            $('#page-nav-wrapper').addClass('fixed');
-            $('body').addClass('sticky-page-nav');
-         }
 
-    });
+            var scrollTop = $(this).scrollTop();
+            var topDistance = $('#page-nav-wrapper').offset().top;
 
-	/* ======= Stop Video Playing When Close the Modal Window ====== */
-    $("#modal-video .close").on("click", function() {
-        $("#modal-video iframe").attr("src", $("#modal-video iframe").attr("src"));
+            if ( (topDistance) > scrollTop ) {
+                $('#page-nav-wrapper').removeClass('fixed');
+                $('body').removeClass('sticky-page-nav');
+            }
+            else {
+                $('#page-nav-wrapper').addClass('fixed');
+                $('body').addClass('sticky-page-nav');
+            }
+
+        }
+
     });
 
     /* ======= FAQ accordion ======= */

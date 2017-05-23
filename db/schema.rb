@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328002045) do
+ActiveRecord::Schema.define(version: 20170521001750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 20170328002045) do
   create_table "plan_details", force: :cascade do |t|
     t.integer  "plan_id"
     t.string   "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "href",       default: ""
     t.index ["plan_id"], name: "index_plan_details_on_plan_id", using: :btree
   end
 
@@ -34,8 +35,10 @@ ActiveRecord::Schema.define(version: 20170328002045) do
     t.string   "name"
     t.integer  "price"
     t.integer  "frequency"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "stripe_plan_id"
+    t.text     "description"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -52,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170328002045) do
     t.integer  "profileable_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "brand"
     t.index ["profileable_type", "profileable_id"], name: "index_profiles_on_profileable_type_and_profileable_id", using: :btree
   end
 
@@ -93,6 +97,7 @@ ActiveRecord::Schema.define(version: 20170328002045) do
     t.integer  "invited_by_id"
     t.integer  "invitations_count",      default: 0
     t.integer  "organization_id"
+    t.string   "brand"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
     t.index ["invitations_count"], name: "index_users_on_invitations_count", using: :btree

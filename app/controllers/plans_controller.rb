@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   before_action :enforce_admin
-  before_action :find_plan only: [:edit, :show, :update, :destroy]
+  before_action :find_plan, only: [:edit, :show, :update, :destroy]
 
   def index
     @plans = Plan.all

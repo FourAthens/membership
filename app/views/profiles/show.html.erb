@@ -1,0 +1,19 @@
+<section class="heading-section section section-on-bg">
+  <div class="hero-wrapper">
+    <div class="hero-holder"></div>
+    <div class="hero-mask-solid"></div>
+  </div><!--//hero-wrapper-->
+  <div class="container heading-content">
+    <h2 class="headline">Hi <%= current_user.name %>!</h2>
+  </div><!--//container-->
+</section><!--//heading-section-->
+<div id="intro" class="team-block">
+  <div class="container">
+    <h2 class="block-heading text-center"><%= @profile.profileable.name %></h2>
+    <h3 class="block-h3 text-center"><%= @profile.profileable_type %>'s Profile</h3>
+    <div class="block-intro text-center">
+      <p><%= @profile.plans.first.name %> <%= @profile.plans.first.frequency %>: <%= number_to_currency(@profile.plans.first.price / 100) %></p>
+      <p>Card info: <%= @profile.brand %><%= @profile.last_four_digits %> Exp <%= @profile.cc_exp_month %>/<%= @profile.cc_exp_year %></p>
+    </div>
+  </div>
+</div>
