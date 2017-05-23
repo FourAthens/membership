@@ -13,7 +13,7 @@
     <h3 class="block-h3 text-center"><%= @profile.profileable_type %>'s Profile</h3>
     <div class="block-intro text-center">
       <p><%= @profile.plans.first.name %> <%= @profile.plans.first.frequency %>: <%= number_to_currency(@profile.plans.first.price / 100) %></p>
-      <p>Card info: <%= @profile.last_four_digits %> Exp <%= @profile.cc_exp_month %>/<%= @profile.cc_exp_year %></p>
+      <p>Card info: <%= @profile.brand %><%= @profile.last_four_digits %> Exp <%= @profile.cc_exp_month %>/<%= @profile.cc_exp_year %></p>
     </div>
   </div>
 </div>
