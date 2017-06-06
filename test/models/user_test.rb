@@ -31,6 +31,7 @@
 #  invitations_count      :integer          default(0)
 #  organization_id        :integer
 #  brand                  :string
+#  hubspot_vid            :integer
 #
 # Indexes
 #
