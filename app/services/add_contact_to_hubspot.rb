@@ -7,7 +7,8 @@ class AddContactToHubspot
   def call
     firstname = @user.name.split(" ")[0]
     lastname = @user.name.split(" ")[1]
-    res = Hubspot::Contact.create!(@user.email, {firstname: firstname, lastname: lastname})
+    plan = @user.profile.plans.first.name
+    res = Hubspot::Contact.create_or_update!([{email: @user.email, firstname: firstname, lastname: lastname, membership_level: plan}])
     if res["status"] == "error"
       return
     else
