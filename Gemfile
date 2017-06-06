@@ -25,6 +25,7 @@ gem 'rails-assets-flexslider', source: 'https://rails-assets.org'
 gem 'rails-assets-jquery.scrollTo', source: 'https://rails-assets.org'
 gem "font-awesome-rails"
 gem 'cocoon'
+gem 'hubspot-ruby'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

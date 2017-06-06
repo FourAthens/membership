@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
     if @user.save
       @profile = @user.create_profile
       @plan = Plan.find_by(stripe_plan_id: params[:stripe_plan_id])
+      AddContactToHubspot.new(@user.id).call
       sign_in @user
       if @plan.stripe_plan_id.include?("individual")
         response = ProcessStripePayment.new(@user.id, params[:registration][:card_token], params[:stripe_plan_id]).call
