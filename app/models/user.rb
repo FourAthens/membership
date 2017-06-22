@@ -42,6 +42,12 @@
 #
 
 class User < ApplicationRecord
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :invitable, :database_authenticatable, :registerable, :confirmable,
+         :recoverable, :rememberable, :trackable, :validatable
+
   has_one :profile, as: :profileable
   belongs_to :organization, foreign_key: :organization_id, optional: true
   accepts_nested_attributes_for :profile
@@ -53,8 +59,15 @@ class User < ApplicationRecord
     self.role ||= :user
   end
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :invitable, :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable
+  # I made this. I don't think it works.
+  # def has_organization?
+  #   has_org = true
+  #   if (User.find(params[:organization]) == nil)
+  #     has_org = false
+  #     return has_org
+  #   end
+  #   return has_org
+  # end
+
+ 
 end

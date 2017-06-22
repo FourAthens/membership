@@ -1,9 +1,15 @@
+
+<!-- if user signed in && organizations is not nil // unless current_user.organization.nil? -->
 <% if user_signed_in? %>
   <li class="nav-item dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#">Account <i class="fa fa-angle-down"></i></a>
     <ul class="dropdown-menu">
       <% if current_user.try(:admin?) %>
         <li><%= link_to 'Users', users_path %></li>
+      <% end %>
+      <!-- jhb, 'organizations' doesn't currently go anywhere // it does now, I had to make an organizations file in the pages folder -->
+      <% if current_user.organization %>
+        <li><%= link_to 'Organizations', page_path('organizations') %></li>
       <% end %>
       <li><%= link_to 'Benefits', page_path('benefits') %></li>
       <li><%= link_to 'Edit account', edit_profile_path(current_user.profile) %></li>
