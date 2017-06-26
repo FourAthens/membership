@@ -19,6 +19,10 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def show
+    @organization = Organization.find(params[:id])
+  end
+
   private
   def secure_params
     params.require(:organization).permit(:name, :org_owner_id, profile_attributes: [:street_address, :city, :state, :zip_code])
