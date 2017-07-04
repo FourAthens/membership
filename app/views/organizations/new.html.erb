@@ -12,45 +12,49 @@
     </div><!--//actions-->
   </div><!--//container-->
 </section><!--//heading-section-->
-<div class="authform">
-  <%= form_for(@organization, :html => { :role => 'form'}) do |f| %>
-    <h3>Sign up</h3>
-    <%= hidden_field_tag :plan_id, params[:plan_id] %>
-    <%= hidden_field_tag :token, params[:token] %>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
-    </div>
-    <%= f.fields_for :profile do |pf| %>
-      <div class="col-sm-6">
-        <h4 class="text-center">Address</h4>
-        <div class="form-group input-group">
-          <label class="sr-only" for="street-address"><i class="fa fa-address-card-o"></i> Street Address</label>
-          <span class="input-group-addon"><i class="fa fa-address-card-o"></i></span>
-          <%= pf.text_field :street_address, class: 'form-control street-address', id: 'street-address', placeholder: "Street Address (including Suite)" %>
+<section class="section">
+  <div class="container">
+    <div class="authform">
+      <%= form_for(@organization, :html => { :role => 'form'}) do |f| %>
+        <h3>Sign up</h3>
+        <%= hidden_field_tag :plan_id, params[:plan_id] %>
+        <%= hidden_field_tag :token, params[:token] %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
         </div>
-        <div class="form-group col-sm-4 alpha">
-          <div class="input-group">
-            <label class="sr-only" for="city"><i class="fa fa-map-marker"></i> City</label>
-            <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-            <%= pf.text_field :city, class: 'form-control city', id: 'city', placeholder: "City" %>
+        <%= f.fields_for :profile do |pf| %>
+          <div class="col-sm-6">
+            <h4 class="text-center">Address</h4>
+            <div class="form-group input-group">
+              <label class="sr-only" for="street-address"><i class="fa fa-address-card-o"></i> Street Address</label>
+              <span class="input-group-addon"><i class="fa fa-address-card-o"></i></span>
+              <%= pf.text_field :street_address, class: 'form-control street-address', id: 'street-address', placeholder: "Street Address (including Suite)" %>
+            </div>
+            <div class="form-group col-sm-4 alpha">
+              <div class="input-group">
+                <label class="sr-only" for="city"><i class="fa fa-map-marker"></i> City</label>
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                <%= pf.text_field :city, class: 'form-control city', id: 'city', placeholder: "City" %>
+              </div>
+            </div>
+            <div class="form-group col-sm-4">
+              <%= pf.select :state, options_for_select(us_states), {}, {class: 'form-control'} %>
+            </div>
+            <div class="form-group col-sm-4 omega">
+              <div class="input-group">
+                <label class="sr-only" for="zipcode"><i class="fa fa-map-pin"></i> City</label>
+                <span class="input-group-addon"><i class="fa fa-map-pin"></i></span>
+                <%= pf.phone_field :zip_code, class: 'form-control zipcode', id: 'zipcode', placeholder: "Zip Code" %>
+              </div>
+            </div>
           </div>
+        <% end %>
+        <div class="form-group">
+          <%= f.hidden_field :org_owner_id, value: current_user.id %>
         </div>
-        <div class="form-group col-sm-4">
-          <%= pf.select :state, options_for_select(us_states), {}, {class: 'form-control'} %>
-        </div>
-        <div class="form-group col-sm-4 omega">
-          <div class="input-group">
-            <label class="sr-only" for="zipcode"><i class="fa fa-map-pin"></i> City</label>
-            <span class="input-group-addon"><i class="fa fa-map-pin"></i></span>
-            <%= pf.phone_field :zip_code, class: 'form-control zipcode', id: 'zipcode', placeholder: "Zip Code" %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <div class="form-group">
-      <%= f.hidden_field :org_owner_id, value: current_user.id %>
+        <%= f.submit 'Create profile', :class => 'btn btn-cta btn-block btn-primary' %>
+      <% end %>
     </div>
-    <%= f.submit 'Create profile', :class => 'btn btn-cta btn-block btn-primary' %>
-  <% end %>
-</div>
+  </div>
+</section>

@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def us_states
     [
       ['Alabama', 'AL'],
@@ -54,5 +55,16 @@ module ApplicationHelper
       ['Wisconsin', 'WI'],
       ['Wyoming', 'WY']
     ]
+  end
+
+  def check_sign_in
+    if params[:id] == 'benefits'
+      authenticate_user!
+    end
+  end
+
+  def load_plans
+    @monthly_plans = Plan.monthly
+    @yearly_plans = Plan.yearly
   end
 end
