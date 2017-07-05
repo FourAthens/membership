@@ -1549,7 +1549,15 @@ body.sticky-page-nav .overview-section {
   -o-background-size: cover;
   background-size: cover;
 }
-.pricing .hero-holder {
+.startup-internship-program .hero-holder {
+  background: #35373C no-repeat 50% 50%;
+  background-image: image-url('internship.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.memberships .hero-holder {
   background: #35373C no-repeat 50% 50%;
   background-image: image-url('hero/hero-pricing.jpg');
   -webkit-background-size: cover;
