@@ -3,7 +3,7 @@ require 'stripe'
 class UpdatePlansFromStripe
 
   def initialize
-    Stripe.api_key = ENV["stripe_api_key"]
+    Stripe.api_key = ENV["stripe_secret_key"]
   end
 
   def call
